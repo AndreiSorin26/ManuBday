@@ -1,0 +1,14 @@
+<p>Hint: Click pe imagini</p>
+<div class="image-container" *ngFor="let image of images; let i = index">
+  <div class="border">
+    <img class="image"
+         src="{{image.src}}"
+         [alt]="image.description"
+         (click)="toggleDescription(i)"
+    >
+  </div>
+  <div class="description"
+       *ngIf="image.isDescriptionVisible"
+       (click)="toggleDescription(i)">{{ image.description }}
+  </div>
+</div>

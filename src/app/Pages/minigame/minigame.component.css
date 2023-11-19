@@ -1,0 +1,58 @@
+.game-container {
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+.trex {
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  position: absolute;
+  bottom: 0;
+  transition: bottom 0.3s;
+}
+
+.trex.jumping {
+  bottom: 100px;
+}
+
+.ground-obstacle {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+
+.flying-obstacle {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+}
+
+.moving-obstacle
+{
+  animation: moveObstacle 2s infinite linear;
+}
+
+@keyframes moveObstacle {
+  from { right: -20px; }
+  to { right: 100%; }
+}
+
+canvas
+{
+  border: 1px solid black;
+}
+
+.hidden
+{
+  opacity: 0;
+}

@@ -1,0 +1,22 @@
+<p> Daca reusesti sa bati jocul asta, primesti un mesaj de la mine, din inima. </p>
+<p> P.S. e posibil sa fie "ESTI GRAS" ;)) </p>
+<ul>
+  <li>Space: Jump</li>
+  <li>R: restart</li>
+  <li>S: start</li>
+</ul>
+<p>Score: {{score}} / 3000</p>
+<div class="game-container">
+  <div #trex class="trex" [class.jumping]="isJumping"></div>
+  <div #obstacle
+       *ngIf="!this.isGameOver"
+       [ngClass]="{'ground-obstacle': !isFlying && isGameStarted,
+                   'flying-obstacle': isFlying && isGameStarted,
+                   'moving-obstacle': !isGameOver && isGameStarted,
+                   'obstacle': isGameStarted }">
+  </div>
+</div>
+
+<div *ngIf="score >= 3000 && imageClickedCount < 2">
+  <img ngSrc="assets/{{imageClickedCount == 1 ? 'ilubro.png' : 'click.png'}}" fill="true" (click)="clickImage()">
+</div>

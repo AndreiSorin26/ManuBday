@@ -1,0 +1,15 @@
+<div *ngIf="this.score != this.questions.length - 1">
+  <p>Hai sa vedem daca reusesti sa ghicesti tot ca sa deblochezi mesajul</p>
+  <div *ngFor="let question of questions; let i = index">
+    <p>{{i+1}}. {{ question.text }}</p>
+    <ul>
+      <li *ngFor="let answer of question.answers; let j = index">
+        <input type="radio" [name]="'question' + i" [value]="j" (change)="saveAnswer(i, j)"> {{ answer }}
+      </li>
+    </ul>
+  </div>
+  <button (click)="submitQuiz()">Submit</button>
+</div>
+<div>
+  <span class="cursive" [innerHTML]="displayedText"></span>
+</div>
